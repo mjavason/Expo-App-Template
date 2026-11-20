@@ -61,7 +61,7 @@ Run:
 npx eas-cli@latest init
 ```
 
-This associates your local Expo project with an EAS project and configures its project ID.
+This associates your local Expo project with an EAS project and configures its project ID (Delete the existing one if it exists and belongs to another project(extra.eas.projectId)).
 
 If you already have an EAS project, you can associate your application with that existing project instead.
 
