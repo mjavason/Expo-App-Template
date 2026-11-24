@@ -12,6 +12,10 @@ export const authStorage = {
 
   setUserType: (userType: string) =>
     AsyncStorage.setItem(USER_TYPE_KEY, userType),
+
+  clearAll: async () => {
+    AsyncStorage.multiRemove([USER_TYPE_KEY, TOKEN_KEY]);
+  },
 };
 
 // import * as SecureStore from 'expo-secure-store';

@@ -30,3 +30,18 @@ export function useLogin() {
     },
   );
 }
+
+export function useLogout() {
+  const qc = useQueryClient();
+
+  const logout = async () => {
+    await authStorage.clearAll();
+
+    qc.clear();
+    router.replace(RoutesConst.HOME);
+  };
+
+  return {
+    logout,
+  };
+}
