@@ -51,10 +51,16 @@ export async function getJson<T>(url: string): Promise<T> {
     headers.Authorization = `Bearer ${token}`;
   }
 
-  const res = await fetch(url, {
-    method: 'GET',
-    headers,
-  });
+  let res: Response;
+  try {
+    res = await fetch(url, {
+      method: 'GET',
+      headers,
+    });
+  } catch (error) {
+    console.log(error);
+    throw new Error('Unknown error occurred');
+  }
 
   await handleAuthError(res.status);
 
@@ -82,13 +88,19 @@ export async function mutateJson<TOutput>(
     headers.Authorization = `Bearer ${token}`;
   }
 
-  const res = await fetch(buildUrl(url, param, query), {
-    method,
-    headers,
-    ...(method !== 'GET' && method !== 'DELETE'
-      ? { body: JSON.stringify(body) }
-      : {}),
-  });
+  let res: Response;
+
+  try {
+    res = await fetch(buildUrl(url, param, query), {
+      method,
+      headers,
+      ...(method !== 'GET' && method !== 'DELETE'
+        ? { body: JSON.stringify(body) }
+        : {}),
+    });
+  } catch {
+    throw new Error('Unknown error occurred');
+  }
 
   await handleAuthError(res.status);
 
