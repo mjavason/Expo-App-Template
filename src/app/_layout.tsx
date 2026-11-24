@@ -1,12 +1,10 @@
-import { DarkTheme, ThemeProvider } from 'expo-router';
-import { useColorScheme } from 'react-native';
-import AppTabs from '@/components/app-tabs';
+import { DarkTheme, Stack, ThemeProvider } from 'expo-router';
+import '../global.css';
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+export default function RootLayout() {
   return (
     <ThemeProvider value={DarkTheme}>
-      <AppTabs />
+      <Stack screenOptions={{ animation: 'slide_from_right' }} />
     </ThemeProvider>
   );
 }
