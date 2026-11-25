@@ -1,26 +1,26 @@
+import { AppStorageKeys } from '@/constants/keys.constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const TOKEN_KEY = 'auth_token';
-const USER_TYPE_KEY = 'user_type';
-
 export const authStorage = {
-  getToken: () => AsyncStorage.getItem(TOKEN_KEY),
-  setToken: (token: string) => AsyncStorage.setItem(TOKEN_KEY, token),
-  removeToken: () => AsyncStorage.removeItem(TOKEN_KEY),
-  getUserType: () => AsyncStorage.getItem(USER_TYPE_KEY),
-  removeUserType: () => AsyncStorage.removeItem(USER_TYPE_KEY),
+  getToken: () => AsyncStorage.getItem(AppStorageKeys.AUTH_TOKEN),
+  setToken: (token: string) =>
+    AsyncStorage.setItem(AppStorageKeys.AUTH_TOKEN, token),
+  removeToken: () => AsyncStorage.removeItem(AppStorageKeys.AUTH_TOKEN),
+  getUserType: () => AsyncStorage.getItem(AppStorageKeys.USER_TYPE),
+  removeUserType: () => AsyncStorage.removeItem(AppStorageKeys.USER_TYPE),
 
   setUserType: (userType: string) =>
-    AsyncStorage.setItem(USER_TYPE_KEY, userType),
+    AsyncStorage.setItem(AppStorageKeys.USER_TYPE, userType),
 
   clearAll: async () => {
-    AsyncStorage.multiRemove([USER_TYPE_KEY, TOKEN_KEY]);
+    AsyncStorage.multiRemove([
+      AppStorageKeys.USER_TYPE,
+      AppStorageKeys.AUTH_TOKEN,
+    ]);
   },
 };
 
 // import * as SecureStore from 'expo-secure-store';
-
-// const TOKEN_KEY = 'auth_token';
 
 // export const authStorage = {
 //   async getToken(): Promise<string | null> {

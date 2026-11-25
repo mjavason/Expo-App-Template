@@ -3,7 +3,7 @@ export const CacheKeys = {
   PROFILE: 'profile',
 };
 
-export const CookieKeys = {
+export const AppStorageKeys = {
   VISITED: 'visited',
   AUTH_TOKEN: 'auth_token',
   REDIRECT_ROUTE: 'srt_redirect_route',
