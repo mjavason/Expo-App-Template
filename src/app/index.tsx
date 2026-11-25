@@ -1,8 +1,11 @@
+import BackgroundImage from '@/components/ui/background-image';
+import { hqBg } from '@/media/faculty-bg';
 import { Pressable, Text, View } from 'react-native';
 
 export default function Index() {
   return (
     <View className='flex-1 items-center justify-center bg-slate-950 px-6'>
+      <BackgroundImage source={hqBg} />
       <View className='w-full rounded-2xl bg-white p-6'>
         <Text className='text-2xl font-bold text-slate-900'>NativeWind</Text>
 
