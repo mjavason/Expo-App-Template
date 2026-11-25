@@ -147,7 +147,7 @@ const SideMenuNav = () => {
             }}
           >
             <Pressable onPress={closeMenu} className='flex-1' />
-          </Animated.View>{' '}
+          </Animated.View>
         </View>
       </Modal>
     </View>
